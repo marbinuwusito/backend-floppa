@@ -1,10 +1,12 @@
 const express = require('express');
+const morgan = require('morgan');
 const port = process.env.PORT || 3050;
 
 const app = express();
 
 app.set('port', port);
 
+app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
