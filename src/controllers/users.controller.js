@@ -17,24 +17,70 @@ function getUsers (req, res) {
 function getOneUser (req, res) {
 
    const { id } = req.params;
+
    dataModel.getOneUser(id, (data, error) => {
+
       if (error) {
          console.log(error);
       } else {
-         console.log(data)
+         res.json(data);
+      }
+
+   });
+
+}
+
+function addOneUser (req, res) {
+
+   const {nombre, pais, biografia, codigoReceta} = req.body;
+
+   dataModel.addUser({ nombre, pais, biografia, codigoReceta }, (data, error) => {
+
+      if (error) {
+         console.log(error);
+      } else {
+         res.json(data);
+      }
+
+   });
+
+}
+
+function editUser (req, res) {
+
+   const { id } = req.params;
+
+   const {
+      nombre,
+      pais,
+      biografia,
+      codigoReceta
+   } = req.body;
+
+   dataModel.editUser({id, nombre, pais, biografia, codigoReceta }, (data, error) => {
+      if (error) {
+         console.log(error);
+      } else {
          res.json(data);
       }
    });
 
 }
 
-function addOneUser (req, res) {
-}
-
-function editUser (req, res) {
-}
-
 function deleteUser (req, res) {
+
+   const { id } = req.params;
+
+   dataModel.deleteUser(id, (data, error) => {
+
+      if (error) {
+         console.log(error);
+      } else {
+         res.json(data);
+      }
+
+   })
+
 }
 
 module.exports = {

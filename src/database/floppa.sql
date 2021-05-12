@@ -18,7 +18,7 @@ CREATE TABLE comunidades(
    nombre VARCHAR(90),
    miembros INT NOT NULL DEFAULT 0,
    codigoUsuario INT,
-   
+
    PRIMARY KEY (id)
 );
 
