@@ -12,5 +12,6 @@ app.use(express.json());
 app.use('/public', express.static(`${__dirname}/storage`))
 
 app.use(require('./routes/routes.users'));
+app.use(require('./routes/routes.recetas'));
 
 module.exports = app;
