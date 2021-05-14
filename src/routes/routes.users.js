@@ -1,4 +1,5 @@
 const route = require('express').Router();
+const upload = require('../helpers/imageUploads');
 
 const {
 
@@ -14,7 +15,7 @@ route.route('/users').get(getUsers);
 
 route.route('/users/:id').get(getOneUser);
 
-route.route('/users').post(addOneUser);
+route.route('/users').post(upload.single('imgURL'), addOneUser);
 
 route.route('/users/:id').put(editUser);
 

@@ -2,11 +2,13 @@ const mysql = require('mysql');
 const data = require('./data');
 
 const objectConnection = {
+
    host: data.mysql.host,
    port: data.mysql.port,
    user: data.mysql.user,
    password: data.mysql.pass,
    database: data.mysql.database
+
 }
 
 const myConfig = mysql.createConnection(objectConnection);

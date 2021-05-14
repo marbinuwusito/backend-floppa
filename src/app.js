@@ -9,6 +9,7 @@ app.set('port', port);
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use('/public', express.static(`${__dirname}/storage`))
 
 app.use(require('./routes/routes.users'));
 

@@ -28,7 +28,8 @@ let dataModel = {
    addUser : (data, callback) => {
 
       if (connection) {
-         let sql = `INSERT INTO usuarios (nombre, pais, biografia, codigoReceta) VALUES(${connection.escape(data.nombre)}, ${connection.escape(data.pais)}, ${connection.escape(data.biografia)}, ${connection.escape(data.codigoReceta)})`;
+
+         let sql = `INSERT INTO usuarios (nombre, pais, biografia, codigoReceta, imgURL) VALUES(${connection.escape(data.nombre)}, ${connection.escape(data.pais)}, ${connection.escape(data.biografia)}, ${connection.escape(data.codigoReceta)}, ${connection.escape(data.imgURL)})`;
 
          connection.query(sql, (error) => {
 

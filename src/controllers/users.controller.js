@@ -33,8 +33,10 @@ function getOneUser (req, res) {
 function addOneUser (req, res) {
 
    const {nombre, pais, biografia, codigoReceta} = req.body;
+   const { filename } = req.file;
+   const imgURL = `http://localhost:3050/public/${filename}`;
 
-   dataModel.addUser({ nombre, pais, biografia, codigoReceta }, (data, error) => {
+   dataModel.addUser({ nombre, pais, biografia, codigoReceta, imgURL}, (data, error) => {
 
       if (error) {
          console.log(error);
