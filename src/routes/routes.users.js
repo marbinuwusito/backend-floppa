@@ -17,7 +17,7 @@ route.route('/users/:id').get(getOneUser);
 
 route.route('/users').post(upload.single('imgURL'), addOneUser);
 
-route.route('/users/:id').put(editUser);
+route.route('/users/:id').put(upload.single('imgURL'), editUser);
 
 route.route('/users/:id').delete(deleteUser);
 

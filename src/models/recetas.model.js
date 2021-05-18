@@ -29,7 +29,7 @@ let dataModel = {
 
       if (connection) {
 
-         let sql = `INSERT INTO recetas (nombre, pasos, ingredientes, description, imgURL) VALUES(${connection.escape(data.nombre)}, ${connection.escape(data.pasos)}, ${connection.escape(data.ingredientes)}, ${connection.escape(data.description)}, ${connection.escape(data.imgURL)})`;
+         let sql = `INSERT INTO recetas (nombre, pasos, ingredientes, description, imgURL, codigoUsuario) VALUES(${connection.escape(data.nombre)}, ${connection.escape(data.pasos)}, ${connection.escape(data.ingredientes)}, ${connection.escape(data.description)}, ${connection.escape(data.imgURL)}, ${connection.escape(data.codigoUsuario)})`;
 
          connection.query(sql, (error) => {
 
@@ -45,7 +45,7 @@ let dataModel = {
 
       if (connection) {
 
-         let sql = `UPDATE recetas SET nombre = ${connection.escape(data.nombre)}, pasos = ${connection.escape(data.pasos)}, ingredientes = ${connection.escape(data.ingredientes)}, description = ${connection.escape(data.description)}, imgURL = ${connection.escape(data.imgURL)} WHERE id = ${connection.escape(data.id)}`;
+         let sql = `UPDATE recetas SET nombre = ${connection.escape(data.nombre)}, pasos = ${connection.escape(data.pasos)}, ingredientes = ${connection.escape(data.ingredientes)}, description = ${connection.escape(data.description)}, imgURL = ${connection.escape(data.imgURL)}, codigoUsuario = ${connection.escape(data.codigoUsuario)} WHERE id = ${connection.escape(data.id)}`;
 
          connection.query(sql, (error) => {
             if (error) throw error

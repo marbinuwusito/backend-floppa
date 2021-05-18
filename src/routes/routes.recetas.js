@@ -1,4 +1,5 @@
 const route = require('express').Router();
+const cors = require('cors');
 const upload = require('../helpers/imageUploads');
 
 const {
@@ -13,7 +14,7 @@ const {
 
 route.route('/recetas').get(getRecetas);
 
-route.route('/recetas/:id').get(getOneReceta);
+route.route('/recetas/:id').get(cors(), getOneReceta);
 
 route.route('/recetas').post(upload.single('imgURL'), addOneReceta);
 

@@ -32,11 +32,11 @@ function getOneUser (req, res) {
 
 function addOneUser (req, res) {
 
-   const {nombre, pais, biografia, codigoReceta} = req.body;
+   const {nombre, pais, biografia} = req.body;
    const { filename } = req.file;
    const imgURL = `http://localhost:3050/public/${filename}`;
 
-   dataModel.addUser({ nombre, pais, biografia, codigoReceta, imgURL}, (data, error) => {
+   dataModel.addUser({ nombre, pais, biografia, imgURL}, (data, error) => {
 
       if (error) {
          console.log(error);
@@ -55,11 +55,13 @@ function editUser (req, res) {
    const {
       nombre,
       pais,
-      biografia,
-      codigoReceta
+      biografia
    } = req.body;
 
-   dataModel.editUser({id, nombre, pais, biografia, codigoReceta }, (data, error) => {
+   const { filename } = req.file;
+   const imgURL = `http://localhost:3050/public/${filename}`;
+
+   dataModel.editUser({id, nombre, pais, biografia, imgURL}, (data, error) => {
       if (error) {
          console.log(error);
       } else {

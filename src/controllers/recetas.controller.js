@@ -32,11 +32,11 @@ function getOneReceta (req, res) {
 
 function addOneReceta (req, res) {
 
-   const {nombre, pasos, ingredientes, description} = req.body;
+   const {nombre, pasos, ingredientes, description, codigoUsuario} = req.body;
    const { filename } = req.file;
    const imgURL = `http://localhost:3050/public/${filename}`;
 
-   dataModel.addReceta({ nombre, pasos, ingredientes, description, imgURL}, (data, error) => {
+   dataModel.addReceta({ nombre, pasos, ingredientes, description, imgURL, codigoUsuario}, (data, error) => {
 
       if (error) {
          console.log(error);
@@ -55,13 +55,14 @@ function editReceta (req, res) {
       pasos,
       ingredientes,
       description,
+      codigoUsuario
    } = req.body;
 
    const { filename } = req.file;
    const imgURL = `http://localhost:3050/public/${filename}`;
    const { id } = req.params;
 
-   dataModel.editReceta({id, nombre, pasos, ingredientes, description, imgURL}, (data, error) => {
+   dataModel.editReceta({id, nombre, pasos, ingredientes, description, imgURL, codigoUsuario}, (data, error) => {
       if (error) {
          console.log(error);
       } else {

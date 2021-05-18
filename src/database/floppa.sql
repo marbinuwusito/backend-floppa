@@ -8,7 +8,7 @@ CREATE TABLE usuarios(
    fechaDeCreacion DATETIME DEFAULT DATE(CURRENT_TIMESTAMP),
    pais VARCHAR(40),
    biografia TEXT,
-   codigoReceta INT,
+   imgURL VARCHAR(255),
    PRIMARY KEY (id)
 );
 
@@ -29,5 +29,9 @@ CREATE TABLE recetas(
    ingredientes TEXT,
    description TEXT,
    imgURL VARCHAR(255),
+   codigoUsuario INT(10),
    PRIMARY KEY (id)
 );
+
+SELECT recetas.nombre FROM recetas
+INNER JOIN usuarios ON usuarios.id = recetas.codigoUsuario;

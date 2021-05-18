@@ -29,7 +29,7 @@ let dataModel = {
 
       if (connection) {
 
-         let sql = `INSERT INTO usuarios (nombre, pais, biografia, codigoReceta, imgURL) VALUES(${connection.escape(data.nombre)}, ${connection.escape(data.pais)}, ${connection.escape(data.biografia)}, ${connection.escape(data.codigoReceta)}, ${connection.escape(data.imgURL)})`;
+         let sql = `INSERT INTO usuarios (nombre, pais, biografia, imgURL) VALUES(${connection.escape(data.nombre)}, ${connection.escape(data.pais)}, ${connection.escape(data.biografia)}, ${connection.escape(data.imgURL)})`;
 
          connection.query(sql, (error) => {
 
@@ -45,7 +45,7 @@ let dataModel = {
 
       if (connection) {
 
-         let sql = `UPDATE usuarios SET nombre = ${connection.escape(data.nombre)}, pais = ${connection.escape(data.pais)}, biografia = ${connection.escape(data.biografia)}, codigoReceta = ${connection.escape(data.codigoReceta)} WHERE id = ${connection.escape(data.id)}`;
+         let sql = `UPDATE usuarios SET nombre = ${connection.escape(data.nombre)}, pais = ${connection.escape(data.pais)}, biografia = ${connection.escape(data.biografia)} WHERE id = ${connection.escape(data.id)}`;
 
          connection.query(sql, (error) => {
             if (error) throw error
