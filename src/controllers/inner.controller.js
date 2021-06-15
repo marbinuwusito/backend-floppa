@@ -1,5 +1,7 @@
 const dataModel = require('../models/inner.model');
 
+console.log("owosito");
+
 function getUserReceta(req, res) {
 
    dataModel.getUserReceta((data, error) => {
